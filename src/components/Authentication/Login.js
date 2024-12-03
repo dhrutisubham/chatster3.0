@@ -23,6 +23,7 @@ const Login = () => {
   const { setUser } = ChatState();
 
   const handleClick = () => setShow(!show);
+  
 
   const submitHandler = async () => {
     setLoading(true);
@@ -46,7 +47,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "/api/user/login",
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/login`,
         { email, password },
         config
       );
